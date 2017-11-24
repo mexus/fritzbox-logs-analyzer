@@ -1,0 +1,20 @@
+[package]
+name = "fritzbox_logs_analyzer"
+version = "0.1.0"
+authors = ["mexus <gilaldpellaeon@gmail.com>"]
+description = "A set of fritz-box logs analyzing tools"
+license = "GPL-3.0"
+readme = "README.md"
+keywords = ["fritzbox"]
+repository = "https://github.com/mexus/fritzbox-logs-analyzer"
+
+[badges]
+travis-ci = { repository = "mexus/fritzbox-logs-analyzer", branch = "master" }
+maintenance = { status = "experimental" }
+
+[dependencies]
+clap = "2.27"
+bincode = "0.9.2"
+xz2 = "0.1"
+fritzbox_logs = "0.1"
+log = "0.3.8"
