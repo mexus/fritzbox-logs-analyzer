@@ -42,11 +42,3 @@ $ cargo run -- --db-path ~/fritz-box-logs/combined.db logs.db \
                --logs ~/fritz-box-logs/2017-11-13_20.57.txt \
                --compression-level 9
 ```
-
-## Plans
-
-- [ ] Parse multiple textual logs files simultaneously.
-- [ ] Consider to fetch the logs directly from a router (avoid running a python
-      script).
-- [ ] Plot disconnections statistics.
-- [ ] Plot DSL bandwidth statistics.
