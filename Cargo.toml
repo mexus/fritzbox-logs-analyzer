@@ -1,6 +1,6 @@
 [package]
 name = "fritzbox_logs_analyzer"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["mexus <gilaldpellaeon@gmail.com>"]
 description = "A set of fritz-box logs analyzing tools"
 license = "GPL-3.0"
@@ -16,5 +16,14 @@ maintenance = { status = "experimental" }
 clap = "2.27"
 bincode = "0.9.2"
 xz2 = "0.1"
-fritzbox_logs = "0.1"
+fritzbox_logs = "0.2"
 log = "0.3.8"
+chrono = "0.4"
+
+[[bin]]
+name = "fritzbox-logs-import"
+path = "src/bin/importer.rs"
+
+[[bin]]
+name = "fritzbox-logs-export"
+path = "src/bin/exporter.rs"

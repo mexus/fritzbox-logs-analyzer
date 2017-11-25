@@ -4,6 +4,7 @@ extern crate bincode;
 #[macro_use]
 extern crate log;
 extern crate xz2;
+extern crate chrono;
 
 use bincode::{serialize_into, deserialize_from, Infinite};
 use std::collections::{BTreeMap, BTreeSet};
@@ -12,10 +13,11 @@ use std::fs::File;
 use std::io::BufReader;
 use xz2::read::XzDecoder;
 use xz2::write::XzEncoder;
+use chrono::Local;
 
 fn build_cli() -> clap::App<'static, 'static> {
     use clap::{App, Arg};
-    App::new("Fritz!Box logs parser")
+    App::new("Fritz!Box logs import")
         .about(
             "A tool to convert textual fritz!box logs into a structured DB.",
         )
@@ -79,7 +81,7 @@ fn run() -> Result<(), Box<Error>> {
 
     let mut db = load_db(db_path)?;
 
-    for log_entry in fritzbox_logs::parse(BufReader::new(File::open(logs_path)?))? {
+    for log_entry in fritzbox_logs::parse(BufReader::new(File::open(logs_path)?), Local)? {
         let entry_set = db.entry(log_entry.timestamp).or_insert(BTreeSet::new());
         entry_set.insert(log_entry);
     }
